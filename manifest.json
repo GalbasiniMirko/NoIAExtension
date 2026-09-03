@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "NoIA",
+  "version": "1.0.0",
+  "description": "Rimuove la Panoramica AI e la Modalità AI dai risultati di ricerca Google.",
+  "minimum_chrome_version": "102",
+  "permissions": ["declarativeNetRequest", "storage"],
+  "host_permissions": [
+    "*://www.google.com/*",
+    "*://www.google.it/*",
+    "*://www.google.ch/*",
+    "*://www.google.co.uk/*",
+    "*://www.google.de/*",
+    "*://www.google.fr/*",
+    "*://www.google.es/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.google.com/search*",
+        "*://www.google.it/search*",
+        "*://www.google.ch/search*",
+        "*://www.google.co.uk/search*",
+        "*://www.google.de/search*",
+        "*://www.google.fr/search*",
+        "*://www.google.es/search*"
+      ],
+      "js": ["src/settings.js", "src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "force-web",
+        "enabled": false,
+        "path": "rules/force-web.json"
+      },
+      {
+        "id": "block-ai-mode",
+        "enabled": true,
+        "path": "rules/block-ai-mode.json"
+      }
+    ]
+  }
+}

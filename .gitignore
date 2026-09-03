@@ -1,0 +1,19 @@
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Pacchetti dell'estensione
+*.zip
+*.crx
+*.pem
+
+# Cache che Chrome genera indicizzando le regole quando carica l'estensione
+_metadata/
+
+# Node (serve solo agli script in tools/)
+node_modules/

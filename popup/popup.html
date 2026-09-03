@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>NoIA</h1>
+      <p>Ricerche Google senza risposte generate.</p>
+    </header>
+
+    <ul class="options">
+      <li>
+        <label class="option">
+          <span class="text">
+            <span class="title">Nascondi la Panoramica AI</span>
+            <span class="hint">Rimuove il blocco dai risultati, lasciando la pagina normale.</span>
+          </span>
+          <input type="checkbox" id="hideOverview" />
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </li>
+
+      <li>
+        <label class="option">
+          <span class="text">
+            <span class="title">Blocca la Modalità AI</span>
+            <span class="hint">Nasconde la scheda e riporta ai risultati Web chi ci finisce.</span>
+          </span>
+          <input type="checkbox" id="blockAiMode" />
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </li>
+
+      <li>
+        <label class="option">
+          <span class="text">
+            <span class="title">Solo risultati Web</span>
+            <span class="hint">
+              Ogni ricerca passa dal filtro Web: l'AI non viene proprio generata, ma spariscono
+              anche caroselli immagini, video e box laterali.
+            </span>
+          </span>
+          <input type="checkbox" id="forceWeb" />
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </li>
+    </ul>
+
+    <footer>
+      <label class="debug">
+        <input type="checkbox" id="debug" />
+        <span>Log diagnostico in console</span>
+      </label>
+    </footer>
+
+    <script src="../src/settings.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

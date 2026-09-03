@@ -1,0 +1,8 @@
+.noia-hidden {
+  display: none !important;
+}
+
+html.noia-hide-ai-mode a[href*="udm=50"],
+html.noia-hide-ai-mode a[href*="udm%3D50"] {
+  display: none !important;
+}

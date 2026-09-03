@@ -1,0 +1,5 @@
+# Fine riga normalizzate a LF nel repo, così chi clona da Linux o Mac
+# non si trova un diff finto su ogni file.
+* text=auto eol=lf
+
+*.png binary

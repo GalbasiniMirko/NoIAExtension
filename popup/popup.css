@@ -1,0 +1,145 @@
+:root {
+  --bg: #ffffff;
+  --ink: #1f2328;
+  --muted: #6b7280;
+  --line: #e6e8eb;
+  --accent: #2f6f5e;
+  --track: #d3d7dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1f23;
+    --ink: #e8eaed;
+    --muted: #9aa0a6;
+    --line: #2f343a;
+    --accent: #6fb39c;
+    --track: #454a50;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--ink);
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+header p {
+  margin: 2px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.options li {
+  border-bottom: 1px solid var(--line);
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  display: block;
+  font-weight: 500;
+}
+
+.hint {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+/* L'input resta nel flusso per la navigazione da tastiera, ma è lo `.switch`
+   fratello a essere disegnato. */
+.option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  flex: none;
+  width: 34px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 999px;
+  background: var(--track);
+  transition: background 0.15s ease;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  transition: transform 0.15s ease;
+}
+
+.option input:checked ~ .switch {
+  background: var(--accent);
+}
+
+.option input:checked ~ .switch::after {
+  transform: translateX(14px);
+}
+
+.option input:focus-visible ~ .switch {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+footer {
+  padding-top: 12px;
+}
+
+.debug {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.debug input {
+  accent-color: var(--accent);
+  margin: 0;
+}
